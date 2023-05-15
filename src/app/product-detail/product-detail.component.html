@@ -1,1 +1,30 @@
-<p>product-detail works!</p>
+<div class="row my-5">
+    <div class="col-md-4">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" >
+              <div class="carousel-item active" *ngFor="let img of product.images">
+                <img [src]="img" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+    </div>
+
+    <div class="col-md-8">
+        <h2 class="card-title text-danger mt-3">{{product.title}}</h2>
+        <h6 class="card-text mb-3">{{product.description}}</h6>
+        <p class="card-text my-1">Price : {{ product.price}}</p>
+        <p class="card-text my-1">Discount : {{product.discountPercentage}}%</p>
+        <p class="card-text my-1">category : {{ product.category}}</p>
+        <p class="card-text my-1">brand : {{ product.brand}}</p>
+        <p class="card-text" [ngStyle]="{'color': product.stock > 0 ? 'green' : 'red'}">{{product.stock | stock}}</p>
+    </div>
+
+</div>
