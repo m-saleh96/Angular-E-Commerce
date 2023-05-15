@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
 import { Product } from '../interfaces/product';
 import { HttpClient } from '@angular/common/http';
+import productss from '../../assets/products-list.json'
 
 
 @Component({
@@ -19,8 +20,10 @@ export class ProductDetailComponent {
     this.route.params.subscribe(params => {
       this.id = (params['id'])
     });
-    this.http.get('../../assets/products-list.json').subscribe(data => {
-      this.product = JSON.parse(JSON.stringify(data)).find((product:Product) => product.id == this.id)
-  })
+    this.product = productss.find((product:Product) => product.id == this.id)!
+    console.log(this.product)
+  //   this.http.get('../../assets/products-list.json').subscribe(data => {
+  //     this.product = JSON.parse(JSON.stringify(data)).find((product:Product) => product.id == this.id)
+  // })
   }
 }

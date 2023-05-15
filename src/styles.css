@@ -4,12 +4,16 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
 
 .card{
-    height: 620px;
-    background-color: #131722;
+    height: 650px !important;
+    background-color: #131722 !important;
+    color: white;
 }
 .card-border{
     border: #949cb0 2px solid;
     box-shadow: 0 0 4px rgb(0, 217, 255);
+}
+i{
+    color: white;
 }
 .card-img-top{
     height: 300px;
