@@ -7,6 +7,11 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StockPipe } from './pipes/stock.pipe';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { LogoutComponent } from './logout/logout.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +19,12 @@ import { StockPipe } from './pipes/stock.pipe';
     ProductsListComponent,
     ProductCardComponent,
     NavbarComponent,
-    StockPipe
+    StockPipe,
+    ProductDetailComponent,
+    LoginComponent,
+    RegisterComponent,
+    LogoutComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
