@@ -14,7 +14,9 @@
 .card-img-top{
     height: 300px;
 }
-
+.active{
+    border-bottom: 5px #24baef solid
+}
 img{
     cursor: pointer;
 }

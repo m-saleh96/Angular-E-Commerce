@@ -1,9 +1,9 @@
 <div class="card card-border">
     <img [src]="product.thumbnail"  class="card-img-top" alt="..."  routerLink="product-detail/{{product.id}}">
     <div class="card-body">
-    <h5 class="card-title">{{product.title}}</h5>
+    <h4 class="card-title text-danger">{{product.title}}</h4>
     <p class="card-text">{{product.description}}</p>
-    <p class="card-text">Price : {{product.price}}</p>
+    <p class="card-text">Price : {{product.price | currency}}</p>
     <p class="card-text">Discount : {{product.discountPercentage}}%</p>
     <p class="card-text" [ngStyle]="{'color': product.stock > 0 ? 'green' : 'red'}">{{product.stock | stock}}</p>
     </div>
@@ -11,4 +11,5 @@
     <a (click)="redirectToProduct(product.id)" class="btn btn-primary mx-2">Details</a>
     <small class="text-muted">{{product.createdAt | date}}</small>
     </div>
+    <div class="vote">{{product.rating}}</div>
 </div>    
