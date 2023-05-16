@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+
+  loginUser(loginForm:any){
+    console.log(loginForm);
+    
+  }
+
+
 }

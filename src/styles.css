@@ -28,7 +28,7 @@ img{
     color: #949cb0;
 }
 .btn-mine {
-    background-color: #24baef;
+    background-color: #24baef !important;
     color: #fff;
 }
 .btn-outline-mine {

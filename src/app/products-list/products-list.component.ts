@@ -19,7 +19,6 @@ export class ProductsListComponent {
 
   ngOnInit(){
     this.products = productss
-    console.log(this.products);
     
   //   this.http.get('../../assets/products-list.json').subscribe(data => {
   //     this.products = JSON.parse(JSON.stringify(data));
