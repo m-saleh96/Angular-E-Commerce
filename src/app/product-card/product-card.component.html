@@ -8,7 +8,8 @@
     <p class="card-text" [ngStyle]="{'color': product.stock > 0 ? 'green' : 'red'}">{{product.stock | stock}}</p>
     </div>
     <div class="card-footer">
-    <a (click)="redirectToProduct(product.id)" class="btn btn-primary mx-2">Details</a>
+    <a (click)="redirectToProduct(product.id)" class="btn btn-primary ">Details</a>
+    <a (click)="addToCart(product.id)" class="btn btn-mine mx-2 text-white">Add To Cart</a>
     <small class="text-muted">{{product.createdAt | date}}</small>
     </div>
     <div class="vote">{{product.rating}}</div>
