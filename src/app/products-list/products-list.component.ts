@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Product } from '../interfaces/product';
 import { HttpClient } from '@angular/common/http';
 import productss from '../../assets/products-list.json'
+import { ProductsService } from '../services/products.service';
 
 
 
@@ -15,10 +16,14 @@ export class ProductsListComponent {
   // products: Product[] =[]
   products: Product[] =[]
 
-  constructor(private http:HttpClient){}
+  constructor(private http:HttpClient , private productService: ProductsService){}
 
   ngOnInit(){
-    this.products = productss
+    this.productService.getProduct().subscribe((res:any)=> this.products =  res.products);
+    
+    
+
+    // this.products = productss
     
   //   this.http.get('../../assets/products-list.json').subscribe(data => {
   //     this.products = JSON.parse(JSON.stringify(data));
