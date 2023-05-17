@@ -12,8 +12,8 @@
       <tr *ngFor="let prod of products">
         <td><img [src]="prod.thumbnail" alt=""></td>
         <td>{{prod.title}}</td>
-        <td>{{prod.price}}</td>
-        <td><button class="btn btn-primary mx-2">-</button> {{counterValProd}} <button (click)="addmore()" class="btn btn-success mx-2">+</button></td>
+        <td>{{prod.price*prod.count}}</td>
+        <td><button (click)="decreese(prod.id)" class="btn btn-primary mx-2">-</button> {{prod.count}} <button (click)="increese(prod.id)" class="btn btn-success mx-2">+</button></td>
         <td><button (click)="removeProduct(prod.id)" class="btn btn-danger">remove</button></td>
       </tr>
     </tbody>

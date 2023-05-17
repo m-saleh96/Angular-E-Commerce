@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { RequestsService } from '../services/requests.service';
 import { ProductsService } from '../services/products.service';
 import { CounterService } from '../services/counter.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -14,7 +15,7 @@ counter:number = 0
 counterValProd:number = 1
 productsIDs:any=[]
 products:any=[]
-constructor(private http:HttpClient , private counterservice : CounterService , private requestsservice:RequestsService , private productService:ProductsService) {}
+constructor(private http:HttpClient , private router:Router , private counterservice : CounterService , private requestsservice:RequestsService , private productService:ProductsService) {}
 
 
 ngOnInit() {
@@ -22,16 +23,30 @@ ngOnInit() {
   this.counterservice.counterValProd.subscribe(res=>this.counterValProd = res)
   this.requestsservice._requests.subscribe(res=>this.productsIDs=res)
 
-    // for (let i = 0; i < this.productsIDs.length; i++) {
-    //   this.productService.getProductDetails(this.productsIDs[i]).subscribe((res:any)=> this.products.push(res))
-     
-    // }
+
       
-  this.productsIDs.forEach((elem:number) =>  {
-    this.productService.getProductDetails(elem).subscribe((res:any)=> this.products.push(res))
+  // this.productsIDs.forEach((elem:number) =>  {
+  //   this.productService.getProductDetails(elem).subscribe((res:any)=> this.products.push(res))
+
+  // })
+
+  this.productsIDs.forEach((elem:number) => {
+    this.productService.getProductDetails(elem).subscribe((res:any) => {
+      // Add a new property to the product object
+      res.count = 1;
+      // Push the modified product object to the products array
+      this.products.push(res);
+    });
   });
 
+  if (this.counter == 0) {
+    this.router.navigate(['home'])
+  }
+
+
 }
+
+
 
 removeProduct(id:any){
   this.products = this.products.filter(
@@ -44,8 +59,25 @@ removeProduct(id:any){
 }
 
 
-addmore(){
-  this.counterservice.setCounterProd(++this.counterValProd)
+increese(id:any){
+  this.products.map((elem:any)=>
+  {
+    if(elem.id == id){
+      if (elem.count<elem.stock) {
+        elem.count++;
+      }
+    }
+  })
+}  
+
+decreese(id:any){
+  this.products.map((elem:any)=>
+  {
+    if(elem.id == id){
+      if(elem.count>1)
+      elem.count--;
+    }
+  })
 }  
 
 
