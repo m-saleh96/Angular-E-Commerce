@@ -27,8 +27,7 @@ addToCart(id:number){
   this.requests.push(id)
   this.requstservice.getReq(this.requests)
   this.counterservice.setCounter(++this.counter)
-  console.log(this.requests);
-  
+
 }
 
 

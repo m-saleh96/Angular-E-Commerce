@@ -62,7 +62,7 @@
             <p *ngIf="registerForm.get('confirmPassword')?.errors?.['passwordMismatch']" class="py-2 text-danger">password not matched</p>
         </div>
     </div>
-    <button [disabled]="registerForm.invalid"  type="submit" class="btn btn-mine text-white my-2" >Register</button>
+    <button [disabled]="registerForm.invalid"  type="submit" class="btn btn-mine text-white my-2" routerLink="/login" >Register</button>
 </form>
 
 <div class="container w-75 text-center">
